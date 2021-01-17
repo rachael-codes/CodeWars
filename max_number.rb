@@ -29,7 +29,7 @@ def max_number(int)
   digits.join.to_i
 end 
 
-# TEST CASES
+# TEST
 p max_number(213) == 321
 p max_number(7389) ==  9873
 p max_number(63729) == 97632
