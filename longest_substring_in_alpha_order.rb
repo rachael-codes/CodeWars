@@ -11,6 +11,12 @@ The input will only consist of lowercase characters and will be at least one let
 If there are multiple solutions, return the one that appears first.
 =end
 
+# Algo
+# -get all substring slices of string that occur in alphabetical order 
+# -find the longest one (or if there are two of equal length, the one that occurs first)
+# -return this longest one as a string 
+
+
 # SOLUTION ONE 
 def longest(string)
   array_of_substrings = string.chars.slice_when { |a, b| a > b }.to_a
