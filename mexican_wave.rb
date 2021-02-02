@@ -2,13 +2,16 @@
 # Date: 01/31/21
 
 # Algorithm
-# -initialize an empty array
-# -find the length of the string (n) and add a duplicate of the string to the empty array n times 
-# -iterate over the array one by one and change the index of the first element to upcase, then the second
-#  index of the second element to upcase, and so on...
-# -delete any elements in the array that are unchanged copies of the string (the # of these will equal 
-#  the # of spaces in the string)
-# -return the array 
+# 1. initialize an empty array
+
+# 2. find the length of the string (n) and add a duplicate of the string to the empty array n times 
+
+# 3. iterate over the array one by one and change the first index of the first duplicate to upcase, then the second
+#  index of the second duplicate to upcase, and so on...
+
+# 4. delete any elements in the array that are unchanged copies of the string (the number of these will equal 
+#  the number of spaces in the string)
+# 5. return the array 
 
 def wave(str)
   result = []
