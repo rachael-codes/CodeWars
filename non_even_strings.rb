@@ -44,11 +44,10 @@ def solve(string)
   odd_subs.count
 end 
 
-
+#TEST CASES
 p solve("1341") == 7 #1 1 3 13 41 341 1341 
 p solve("1357") == 10 # 1 3 5 7 13 35 57 135 357 1357 
 p solve("13471") == 12 
 p solve("134721") == 13
 p solve("1347231") == 20
 p solve("13472315") == 28
-
