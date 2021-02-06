@@ -59,23 +59,32 @@ Assumptions
 
 # -insert the punctuation back into its correct index position
 
+# -create a separate method that handles multi-word strings one-by-one
+
 =end
 
-def scramble_words(string)
+PUNCTUATION = ['-', ',', '\'', '.']
+
+def scramble_one_word(string)
   return string if string.size <= 3
   result_string = ''
 
   punctuation = {}
   string.each_char.with_index do |char, idx| 
-    punctuation[char] = idx if %w(- ' , .).include?(char) 
+    punctuation[char] = idx if PUNCTUATION.include?(char) 
   end 
 
-  letters = string.chars.reject { |char| %w(- ' , .).include?(char) } #temporarily strip punctuation
+  letters = string.chars.reject { |char| PUNCTUATION.include?(char) } #temporarily strip punctuation
   middle_letters = letters[1..-2]
   result_string << letters[0] << middle_letters.sort.join << letters[-1]
   punctuation.each { |k, v| result_string.insert(v, k) } #re-insert punctuation if there was any
 
   result_string 
+end 
+
+def scramble_words(string)
+  words = string.split 
+  words.map! { |word| scramble_one_word(word) }.join(' ')
 end 
 
 # TEST CASES
@@ -88,3 +97,4 @@ p scramble_words('i') == 'i'
 p scramble_words('') == ''
 p scramble_words('me') == 'me'
 p scramble_words('you') == 'you'
+p scramble_words("you've gotta dance like there's nobody watching, love like you'll never be hurt, sing like there's nobody listening, and live like it's heaven on earth.") == "you've gotta dacne like teehr's nbdooy wachintg, love like ylo'ul neevr be hrut, sing like teehr's nbdooy leiinnstg, and live like it's haeevn on earth."
