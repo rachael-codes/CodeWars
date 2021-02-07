@@ -71,7 +71,9 @@ def scramble_one_word(string)
 
   punctuation = {}
   string.each_char.with_index do |char, idx| 
-    punctuation[char] = idx if PUNCTUATION.include?(char) 
+    if PUNCTUATION.include?(char) 
+      punctuation[char] = idx 
+    end 
   end 
 
   letters = string.chars.reject { |char| PUNCTUATION.include?(char) } #temporarily strip punctuation
