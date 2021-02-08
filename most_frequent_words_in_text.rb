@@ -16,11 +16,8 @@ If a text contains fewer than three unique words, then either the top-2 or top-1
 ALPHABET = ("a".."z").to_a
 
 def no_letters?(string)
-  chars = string.split('')
-  truthy = chars.map do |char|
-    ALPHABET.include?(char)
-  end 
-  truthy.all? { |value| value == false } 
+  is_letter = string.split('').map { |char| ALPHABET.include?(char) } 
+  is_letter.all? { |value| value == false } 
 end 
 
 def top_3_words(string)
@@ -29,9 +26,9 @@ def top_3_words(string)
 
   stripped_string = string.downcase.gsub(/[^a-z ']/, '')
 
-  counts = stripped_string.split.tally.sort_by { |k, v| v }.reverse
+  largest_to_smallest_counts = stripped_string.split.tally.sort_by { |k, v| v }.reverse
   
-  counts.each_with_index do |array, idx| 
+  largest_to_smallest_counts.each_with_index do |array, idx| 
     break if idx > 2 
     result << array[0] 
   end 
@@ -47,3 +44,9 @@ p top_3_words("  ...  ") == []
 p top_3_words("  '  ") == []
 p top_3_words("  '''  ") == []
 p top_3_words("  //wont won't won't ") == ["won't", "wont"]
+p top_3_words("""In a village of La Mancha, the name of which I have no desire to call to
+mind, there lived not long since one of those gentlemen that keep a lance
+in the lance-rack, an old buckler, a lean hack, and a greyhound for
+coursing. An olla of rather more beef than mutton, a salad on most
+nights, scraps on Saturdays, lentils on Fridays, and a pigeon or so extra
+on Sundays, made away with three-quarters of his income.""") == ["a", "of", "on"]
