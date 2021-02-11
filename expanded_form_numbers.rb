@@ -19,13 +19,26 @@
 # -iterate over string, and for each digit add the correct number of zeros then send to empty array 
 # -minus one from the zero counter with each iteration
 
-# -join array with (' + ') betwee  elements and return this string 
+# -select the array items that are greater than 0 
+
+# -join array with (' + ') between elements and return this string 
 
 def expanded_form(int)
-	p int.digits.size
+  result = []
+  num_of_zeros = int.digits.size - 1
+  int = int.to_s
+  idx = 0
+
+  until idx == int.size  
+    result << (int[idx] + ('0'* num_of_zeros)) 
+    num_of_zeros -= 1
+    idx += 1
+  end 
+
+  result.select { |num| num.to_i > 0 }.join(' + ')
 end 
 
 # TEST CASES
 p expanded_form(12) == '10 + 2'
-#p expanded_form(42) == '40 + 2'
-#p expanded_form(70304) == '70000 + 300 + 4'
+p expanded_form(42) == '40 + 2'
+p expanded_form(70304) == '70000 + 300 + 4'
