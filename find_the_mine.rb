@@ -32,7 +32,7 @@ The location returned should be an array (Tuple<int, int> in C#) where the first
 #   -iterate over array of subarrays 
 #      -assign row variable to the subarray index in which 1 is located 
 #     -iterate over elements within each subarray 
-#       -assign column variable to element index that equals 1 
+#       -assign column variable to element index when 1 is found  
 # return array containing row and column 
 
 def mineLocation(array)
