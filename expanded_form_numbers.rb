@@ -12,7 +12,7 @@
 # implicit: could involve any number of digits
 
 # Algo
-# -initialize empty array 
+# -initialize empty array t
 # -get length of num (digits.size) then minus 1 to find initial number of zeros to add 
 # -convert num to string
 
