@@ -3,6 +3,10 @@
 # Code Wars: https://www.codewars.com/kata/5727bb0fe81185ae62000ae3/solutions/ruby/me/best_practice
 # Kyu: 6 
 
+#Instructions
+#Assume "#" is like a backspace in string. This means that string "a#bc#d" actually is "bd"
+#Your task is to process a string with "#" symbols.
+
 # Algo
 # -initialize an empty string and split string into an array of characters
 # -iterate over array of characters with index and...
