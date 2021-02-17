@@ -35,7 +35,7 @@ def cakes(recipe_hash, ingred_hash)
     end
   end 
 
-  result.sort_by { |k, v| v }.first.last
+  result.sort_by { |_, v| v }.first.last
 end 
 
 
