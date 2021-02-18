@@ -26,3 +26,4 @@ p alphabetized(" ") == ""
 p alphabetized(" a$$$") == "a"
 p alphabetized("a ") == "a"
 p alphabetized(" a ") == "a"
+8/21
