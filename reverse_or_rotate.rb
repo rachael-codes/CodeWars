@@ -51,8 +51,7 @@ def revrot(str, int)
 	return '' if int == 0 || str.size < int 
 
 	subarrays = get_subarrays(str, int)
-	cubes = get_cubes(subarrays)
-	sums_of_cubes = cubes.map { |subarray| subarray.inject(:+) }
+	sums_of_cubes = get_cubes(subarrays).map { |subarray| subarray.inject(:+) }
 
 	sums_of_cubes.map.with_index do |sum, idx|
 		sum.even? ? reverse(subarrays[idx].join) : rotate_left(subarrays[idx].join)
