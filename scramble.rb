@@ -24,7 +24,7 @@
 # -return result 
 
 # My solution (which Code Wars said was too slow)
-def scramble(str1, str2)
+def scramble3(str1, str2)
 	result = true 
 
   str2.chars.each do |char| 
@@ -35,6 +35,12 @@ def scramble(str1, str2)
   
   result
 end
+
+# Another simpler solution from me
+def scramble(str1, str2)
+	str2.chars.each { |char| return false if !(str1.count(char) >= str2.count(char)) } 
+	true 
+end 
 
 # Another Code Wars solution
 def scramble2(s1,s2)
