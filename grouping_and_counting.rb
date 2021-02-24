@@ -7,14 +7,19 @@
 # Empty or nil input must return nil instead of a hash. 
 # This hash returned must contain as keys the unique values of the array, and as values the counting of each value.
 
-# PROBLEM FOR YOORHIM 
+
+
+
+
+
+
 
 def group_and_count(arr)
 	return nil if arr == [] || arr == nil 
 
-	hsh = {}
-	arr.each { |num| hsh[num] = arr.count(num) }
-	hsh
+	
+	arr.each_with_object({}) { |num. object| hsh[num] = arr.count(num) }
+
 end
 
 p group_and_count([1,1,2,2,2,3]) == {1=>2, 2=>3, 3=>1}
@@ -22,3 +27,4 @@ p group_and_count([]) == nil
 p group_and_count(nil) == nil
 p group_and_count([1, 7, 5, -1]) == {1=>1, 7=>1, 5=>1, -1=>1}
 p group_and_count([0,1,1,0]) == {0=>2, 1=>2}
+
