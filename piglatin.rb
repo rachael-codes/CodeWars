@@ -21,6 +21,7 @@ def pigIt(str)
 	pigged_arr.join(' ')
 end 
 
+# TEST CASES
 p pigIt('Pig latin is cool') # igPay atinlay siay oolcay
 p pigIt('Hello world !')    # elloHay orldway !
 

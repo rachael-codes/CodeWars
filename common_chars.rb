@@ -19,7 +19,7 @@
 # -tally up letters and counts then divide each count by size of array to get how many times it occurs in ALL words
 # -this # of times, push the letter to a result array, and return result 
 
-# My solution
+# My first solution
 def common_chars(arr)
 	first = arr[0]
 	arr.delete(arr[0])
@@ -39,7 +39,29 @@ def common_chars(arr)
 	final_result
 end 
 
-# Better solution
+# My second solution
+# Algo
+# -separate the first word from the rest of the words to be used as a basis for comparison
+# -iterate over the chars in this first word and select the ones that are also included in all the other words
+#   -after checking for inclusion, sub out that one char in all words with an empty space so as to get accurate counts 
+#    for cases in which more than 1 of the same char exists in a word 
+# return result of selection 
+
+def common_chars(arr)
+	first_word = arr[0]
+	arr.delete(first_word)
+	
+	res = first_word.chars.select do |char|
+		arr.all? do |word|
+			word.include?(char) 
+			word.sub!(char, '') # remove the first instance of that char when iterating to get the correct count 
+		end 
+	end 
+
+	res 
+end 
+
+# Better Code Wars solution (looks like calling include? isn't needed!)
 def common_chars2(array)
 	first_word_chars = array.shift.chars 
 
@@ -48,6 +70,7 @@ def common_chars2(array)
 	end 
 end 
 
+# TEST CASES
 p common_chars(['bella', 'label', 'roller']) == ['e', 'l', 'l']
 p common_chars(['llllll', 'llll', 'llll']) == ['l', 'l', 'l', 'l']
 p common_chars(['cool', 'lock', 'cook']) == ['c', 'o']
