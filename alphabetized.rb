@@ -11,12 +11,10 @@
 # -remove punctuation and spaces 
 # -sort by downcased ordinal value then rejoin together 
 
-def clean_string(string)
-  string.chars { |char| string.delete!(char) if !('a'..'z').include?(char) && !('A'..'Z').include?(char) }
-end 
+
 
 def alphabetized(string)
-  cleaned_string = clean_string(string)
+  string.delete('^a-zA-Z')
   cleaned_string.chars.sort_by { |char| char.downcase.ord }.join('')
 end 
 
@@ -26,4 +24,3 @@ p alphabetized(" ") == ""
 p alphabetized(" a$$$") == "a"
 p alphabetized("a ") == "a"
 p alphabetized(" a ") == "a"
-8/21
