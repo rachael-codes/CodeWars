@@ -9,7 +9,7 @@
 
 # Allowed items are defined by array of numbers.
 # Pockets contents are defined by map entries where key is a person and value is one or few things represented by an 
-# array of numbers (can be nil or empty array if empty), example:
+# array of numbers (can be nil or empty array if empty).
 
 # PEDAC 
 # input: array of integers that reps numbers in one's pocket
@@ -43,7 +43,7 @@ pockets = {
   bob: [1],
   tom: [2, 5],
   jane: [7]
-} 
+}
 
 # # TEST CASES
 p find_suspects(pockets, [1, 2]) == [:tom, :jane] #1 is allowed, so bob is safe, 2 is allowed, but Tom still has 5 and jane still has 7

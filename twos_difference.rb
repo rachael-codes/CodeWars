@@ -22,7 +22,7 @@ def difference_of_2(arr)
 end 
 
 # Another one of my solutions 
-# Algo
+# ALGORITHM
 # -iterate over input arr 
 # -check if arr includes the number + 2 
 #   -if so, push the number and number + 2 to a result array
