@@ -21,6 +21,19 @@ def difference_of_2(arr)
 	result.sort 
 end 
 
+# Another one of my solutions 
+# Algo
+# -iterate over input arr 
+# -check if arr includes the number + 2 
+#   -if so, push the number and number + 2 to a result array
+# -return sorted result array 
+
+def twos_difference(arr)
+	arr.each_with_object([]) do |num, twos|
+		twos << [num, num+2] if arr.include?(num+2)
+	end.sort
+end 
+
 # Good Code Wars solution
 def twos_difference(arr)
   arr.sort.combination(2).select { |a, b| b - a == 2 }
