@@ -46,7 +46,6 @@ def string_expansion(string)
 	result 
 end  
 
-
 # TEST CASES
 p string_expansion('3D2a5d2f') == 'DDDaadddddff' 
 p string_expansion('3abc') == 'aaabbbccc' 

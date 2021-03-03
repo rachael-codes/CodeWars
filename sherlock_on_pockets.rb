@@ -20,7 +20,7 @@
 #   -key = person
 #   -arr = contents of the person's pocket 
 
-# Algo
+# ALGORITHM #1
 # 1. initialize an array where suspects will get pushed 
 
 # 2. iterate over pocket hash 
@@ -44,6 +44,27 @@ pockets = {
   tom: [2, 5],
   jane: [7]
 }
+
+# Similar solution
+# ALGORITHM #2
+#   initialize an empty array for suspects 
+#   iterate over each value (item) in pockets
+#     if all are in the allowed items array 
+#      -do nothing
+#     else, push the person (key) to suspects 
+#   return suspects array unless it's empty; then return nil. 
+
+def find_suspects(pockets, allowed_items)
+	suspects = [] 
+  
+	pockets.each do |person, items| 
+		if !(items.all? { |item| allowed_items.include?(item) })
+			suspects << person 
+		end 
+	end 
+
+  suspects.empty? ? nil : suspects 
+end
 
 # # TEST CASES
 p find_suspects(pockets, [1, 2]) == [:tom, :jane] #1 is allowed, so bob is safe, 2 is allowed, but Tom still has 5 and jane still has 7
