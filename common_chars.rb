@@ -64,7 +64,6 @@ end
 # Better Code Wars solution (looks like calling include? isn't needed!)
 def common_chars2(array)
 	first_word_chars = array.shift.chars 
-
 	first_word_chars.select do |char|
 		array.all? { |word| word.sub!(char, '') }
 	end 
