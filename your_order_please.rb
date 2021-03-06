@@ -19,10 +19,10 @@
 # Algo
 # -create a global array of strings 0 to 9
 # -initialize a result array
-# -iterate over numbers array 
+# -iterate over global numbers array 
 #  -iterate over words in string 
 #   -if a word contains a number, push the word to the result array 
-# -return the result array 
+# -return the result array rejoined 
 
 NUMBERS = %w(0 1 2 3 4 5 6 7 8 9)
 
@@ -37,6 +37,7 @@ def order(string)
 
 	result.join(' ')
 end 
+
 
 
 p order("is2 Thi1s T4est 3a") == "Thi1s is2 3a T4est"
