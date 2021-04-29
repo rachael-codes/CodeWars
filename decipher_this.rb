@@ -13,35 +13,35 @@
 # Note: there are no special characters used, only letters and spaces
 
 # ALGORITHM
-# 1. convert a word to just letters by separating the numbers from letters, converting the ordinal nums to its 
+# 1. convert a word to just letters by separating the numbers from letters, converting the ordinal nums to its
 #    character equivalent then re-joining them
 # 2. if the converted word is 2 or less letters, return it; else...
-#    convert the word then find its first, second, last, and middle parts 
+#    convert the word then find its first, second, last, and middle parts
 #    return the result of rearranging it: first char, last char, middle chars, second char
 # 3. iterate over each word in the string and transform each into its converted word equivalent; rejoin strings
 
 def convert_to_letters(str)
-	nums = %w(0 1 2 3 4 5 6 7 8 9)
-	numbers = []
-	letters = []
-	str.chars.each { |el| nums.include?(el) ? numbers << el : letters << el } 
-	numbers.join.to_i.chr + letters.join  
-end 
+  nums = %w(0 1 2 3 4 5 6 7 8 9)
+  numbers = []
+  letters = []
+  str.chars.each { |el| nums.include?(el) ? numbers << el : letters << el }
+  numbers.join.to_i.chr + letters.join
+end
 
 def decipher_one_word(str)
-	return convert_to_letters(str) if convert_to_letters(str).chars.size <= 2 
-	
-	converted = convert_to_letters(str)
-	first = converted[0]
-	second = converted[1] 
-	last = converted[-1]
-	middle = converted[2..-2]
-	first + last + middle + second
-end 
+  return convert_to_letters(str) if convert_to_letters(str).chars.size <= 2
+
+  converted = convert_to_letters(str)
+  first = converted[0]
+  second = converted[1]
+  last = converted[-1]
+  middle = converted[2..-2]
+  first + last + middle + second
+end
 
 def decipher_this(str)
   str.split.map! { |word| decipher_one_word(word) }.join(' ')
-end 
+end
 
 # TEST CASES
 p decipher_this("65 119esi 111dl 111lw 108dvei 105n 97n 111ka") #== "A wise old owl lived in an oak"

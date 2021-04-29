@@ -1,7 +1,7 @@
 # Program: Typoglycemia Generator
 # Date: 02/06/20
 # Code Wars
-# Kyu: 5 
+# Kyu: 5
 # Link: https://www.codewars.com/kata/55953e906851cf2441000032/train/ruby
 
 =begin
@@ -27,35 +27,34 @@ Assumptions
 4) for this kata puctuation is limited to 4 characters: hyphen(-), apostrophe('), comma(,) and period(.)
 5) ignore capitalisation
 
-
-# PEDAC 
+# PEDAC
 # input: string
 # output: string
 
 # explicit:
-# -letters in first and last index positions remain the same 
+# -letters in first and last index positions remain the same
 # -sort middle letters alphabetically
 # -punctuation shouldn't move
 
 # implicit:
-# -ignore capitalization 
-# -if one, two, or three letters, return original string 
-# -if empty, return empty 
+# -ignore capitalization
+# -if one, two, or three letters, return original string
+# -if empty, return empty
 
 # Data struct - Array and Hash
 
 # Algo
-# if the size of the string is 3 or less, return the string 
+# if the size of the string is 3 or less, return the string
 # -create empty string
-# -create second empty string for final char 
+# -create second empty string for final char
 
 # -split string into array of chars with index and save the char and index position into a hash if the char is punctuation
 
 # -shift first char into empty string (unless it's punc)
 # -pop final char into second empty string (unless it's punc)
 
-# -sort the remaining middle piece by alphabetical order and add this to first string 
-# -add final char from second string to the frist, and return it 
+# -sort the remaining middle piece by alphabetical order and add this to first string
+# -add final char from second string to the frist, and return it
 
 # -insert the punctuation back into its correct index position
 
@@ -67,30 +66,31 @@ PUNCTUATION = ['-', ',', '\'', '.']
 
 def scramble_one_word(string)
   return string if string.size <= 3
+
   result_string = ''
 
   punctuation = {}
-  string.each_char.with_index do |char, idx| 
-    if PUNCTUATION.include?(char) 
-      punctuation[char] = idx 
-    end 
-  end 
+  string.each_char.with_index do |char, idx|
+    if PUNCTUATION.include?(char)
+      punctuation[char] = idx
+    end
+  end
 
-  letters = string.chars.reject { |char| PUNCTUATION.include?(char) } #temporarily strip punctuation
+  letters = string.chars.reject { |char| PUNCTUATION.include?(char) } # temporarily strip punctuation
   middle_letters = letters[1..-2]
   result_string << letters[0] << middle_letters.sort.join << letters[-1]
-  punctuation.each { |k, v| result_string.insert(v, k) } #re-insert punctuation if there was any
+  punctuation.each { |k, v| result_string.insert(v, k) } # re-insert punctuation if there was any
 
-  result_string 
-end 
+  result_string
+end
 
 def scramble_words(string)
-  words = string.split 
+  words = string.split
   words.map! { |word| scramble_one_word(word) }.join(' ')
-end 
+end
 
 # TEST CASES
-p scramble_words('professionals') == 'paefilnoorsss' # p s 
+p scramble_words('professionals') == 'paefilnoorsss' # p s
 p scramble_words('card-carrying') == 'caac-dinrrryg'
 p scramble_words("shan't") == "sahn't"
 p scramble_words('-dcba') == '-dbca'

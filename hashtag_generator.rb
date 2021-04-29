@@ -17,7 +17,7 @@
 
 # Algo
 # --split string into array of words
-# --iterate over words and capitalize each one 
+# --iterate over words and capitalize each one
 # --insert a hashtag at the beginning and join all of the words together with no space in-between
 # --if the result is over 140 chars or less than or equal to 1, return false; else, return result
 
@@ -27,23 +27,23 @@ def generateHashtag(string)
   arr.map! { |word| word.capitalize }
   result = arr.insert(0, '#').join('')
 
-  if result.size > 140 || result.size <= 1 
+  if result.size > 140 || result.size <= 1
     return false
-  else 
-    return result 
-  end 
-end 
+  else
+    return result
+  end
+end
 
-# Refactored 
+# Refactored
 def generateHashtag(string)
   result = string.split.map!(&:capitalize).insert(0, '#').join('')
   (result.size > 140 || result.size <= 1) ? false : result
-end 
+end
 
 # TEST CASES
 p generateHashtag("Do We have A Hashtag") #== "#DoWeHaveAHashtag"
 p generateHashtag("Codewars") == "#Codewars"
-p generateHashtag("Codewars Is Nice") ==  "#CodewarsIsNice"
+p generateHashtag("Codewars Is Nice") == "#CodewarsIsNice"
 p generateHashtag("Codewars is nice") == "#CodewarsIsNice"
 p generateHashtag("code" + " " * 140 + "wars") == "#CodeWars"
 p generateHashtag("") == false

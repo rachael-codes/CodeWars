@@ -2,8 +2,8 @@
 # Date: 02/10/21
 # https://www.codewars.com/kata/5842df8ccbd22792a4000245
 # Write Number in Expanded Form
-#You will be given a number and you will need to return it as a string in Expanded Form. 
-#NOTE: All numbers will be whole numbers greater than 0.
+# You will be given a number and you will need to return it as a string in Expanded Form.
+# NOTE: All numbers will be whole numbers greater than 0.
 
 # input: integer
 # output: string that represents integer in expanded form
@@ -13,15 +13,15 @@
 
 # Algo
 # -initialize empty array t
-# -get length of num (digits.size) then minus 1 to find initial number of zeros to add 
+# -get length of num (digits.size) then minus 1 to find initial number of zeros to add
 # -convert num to string
 
-# -iterate over string, and for each digit add the correct number of zeros then send to empty array 
+# -iterate over string, and for each digit add the correct number of zeros then send to empty array
 # -minus one from the zero counter with each iteration
 
-# -select the array items that are greater than 0 
+# -select the array items that are greater than 0
 
-# -join array with (' + ') between elements and return this string 
+# -join array with (' + ') between elements and return this string
 
 def expanded_form(int)
   result = []
@@ -29,14 +29,14 @@ def expanded_form(int)
   int = int.to_s
   idx = 0
 
-  until idx == int.size  
-    result << (int[idx] + ('0'* num_of_zeros)) 
+  until idx == int.size
+    result << (int[idx] + ('0' * num_of_zeros))
     num_of_zeros -= 1
     idx += 1
-  end 
+  end
 
   result.select { |num| num.to_i > 0 }.join(' + ')
-end 
+end
 
 # TEST CASES
 p expanded_form(12) == '10 + 2'

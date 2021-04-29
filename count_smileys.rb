@@ -17,45 +17,44 @@
 # Valid smiley face examples: :) :D ;-D :~)
 # Invalid smiley faces: ;( :> :} :]
 
-# PEDAC 
+# PEDAC
 # input: array of strings (valid or invalid smileys)
-#  -valid -- 
-#   must include: ) D (mouth) : ; (eyes) 
+#  -valid --
+#   must include: ) D (mouth) : ; (eyes)
 #   *optional: - ~ (nose)
 #  -invalid
-#   anything else 
+#   anything else
 
-# output: integer that reps how many valid smileys are in the input array 
+# output: integer that reps how many valid smileys are in the input array
 
-# REMEMBER - every string must include ) or D AND ; or : 
+# REMEMBER - every string must include ) or D AND ; or :
 
-# ALGORITHM 
+# ALGORITHM
 # initialize an array of valid features
-# initialize a helper method that checks if all chars in a smiley are in the valid features array 
+# initialize a helper method that checks if all chars in a smiley are in the valid features array
 #   AND the smiley contains a mouth (non-optional)
 #   AND the smiley contains eyes (non-optional)
 
-# initialize counter 
+# initialize counter
 # iterate over all smileys and if return value is true after passing smiley to helper method, add 1 to counter
-# return counter 
+# return counter
 
 VALID_FEATURES = [':', ';', ')', 'D', '~', '-']
 
 def valid_smiley?(smiley)
-  smiley.chars.all? { |char| VALID_FEATURES.include?(char) } && 
-  (smiley.chars.include?(')') || smiley.chars.include?('D')) && 
-  (smiley.chars.include?(':') || smiley.chars.include?(';')) 
-end 
+  smiley.chars.all? { |char| VALID_FEATURES.include?(char) } &&
+    (smiley.chars.include?(')') || smiley.chars.include?('D')) &&
+    (smiley.chars.include?(':') || smiley.chars.include?(';'))
+end
 
 def count_smileys(array)
   counter = 0
-  array.each { |smiley| counter += 1 if valid_smiley?(smiley) } 
-  counter 
-end 
+  array.each { |smiley| counter += 1 if valid_smiley?(smiley) }
+  counter
+end
 
-# TEST CASES 
-p count_smileys([':)', ';(', ';}', ':-D']) == 2 
-p count_smileys([';D', ':-(', ':-)', ';~)']) == 3 
-p count_smileys([';]', ':[', ';*', ':$', ';-D']) == 1 
-p count_smileys([":)",":(",":D",":O",":;"]) == 2
-
+# TEST CASES
+p count_smileys([':)', ';(', ';}', ':-D']) == 2
+p count_smileys([';D', ':-(', ':-)', ';~)']) == 3
+p count_smileys([';]', ':[', ';*', ':$', ';-D']) == 1
+p count_smileys([":)", ":(", ":D", ":O", ":;"]) == 2

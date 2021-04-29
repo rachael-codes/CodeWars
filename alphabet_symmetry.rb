@@ -9,29 +9,29 @@
 # Algo
 # -initialize total and empty array
 # -iterate over each string in array and check each char's index against its index in the ALPHABET
-#  -if the indicies match, add 1 to total 
+#  -if the indicies match, add 1 to total
 #  -add the total for the first string to the result array then reset total
-# -do this for each string 
+# -do this for each string
 
 ALPHABET = %W(a b c d e f g h i j k l m n o p q r s t u v w x y z)
 
 def solve(arr)
-  result = [] 
+  result = []
   total = 0
 
-  arr.each do |str| 
+  arr.each do |str|
     str.split('').each_with_index do |char, idx|
       total += 1 if ALPHABET[idx] == char.downcase
     end
     result << total
     total = 0
-  end 
+  end
 
   result
-end 
+end
 
 # TEST CASES
-p solve(["abode","ABc","xyzD"]) == [4,3,1]
-p solve(["abide","ABc","xyz"]) == [4,3,0]
-p solve(["IAMDEFANDJKL","thedefgh","xyzDEFghijabc"])== [6,5,7]
-p solve(["encode","abc","xyzD","ABmD"]) == [1, 3, 1, 3]
+p solve(["abode", "ABc", "xyzD"]) == [4, 3, 1]
+p solve(["abide", "ABc", "xyz"]) == [4, 3, 0]
+p solve(["IAMDEFANDJKL", "thedefgh", "xyzDEFghijabc"]) == [6, 5, 7]
+p solve(["encode", "abc", "xyzD", "ABmD"]) == [1, 3, 1, 3]

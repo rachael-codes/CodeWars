@@ -7,7 +7,7 @@
 
 def song_decoder(str)
   str.split('WUB').join(' ').squeeze(' ').strip
-end 
+end
 
 # TEST CASES
 p song_decoder("WUBWEWUBAREWUBWUBTHEWUBCHAMPIONSWUBMYWUBFRIENDWUB") == "WE ARE THE CHAMPIONS MY FRIEND"

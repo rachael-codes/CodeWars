@@ -1,6 +1,6 @@
-# Program: Difference of Twos 
+# Program: Difference of Twos
 # Code Wars: https://www.codewars.com/kata/5340298112fa30e786000688/solutions/ruby
-# Kyu: 6 
+# Kyu: 6
 # Date: 02/24/21
 
 # INSTRUCTIONS
@@ -8,31 +8,31 @@
 # The result array should be sorted in ascending order of values.
 # Assume there are no duplicate integers in the array. The order of the integers in the input array should not matter.
 
-# My solution 
+# My solution
 def difference_of_2(arr)
-	result = []
+  result = []
 
-	counter = 0
-	until counter == arr.size 
-		arr.each { |num| result << [num, arr[counter]] if arr[counter] - num == 2 } 
-		counter += 1
-	end 
+  counter = 0
+  until counter == arr.size
+    arr.each { |num| result << [num, arr[counter]] if arr[counter] - num == 2 }
+    counter += 1
+  end
 
-	result.sort 
-end 
+  result.sort
+end
 
-# Another one of my solutions 
+# Another one of my solutions
 # ALGORITHM
-# -iterate over input arr 
-# -check if arr includes the number + 2 
+# -iterate over input arr
+# -check if arr includes the number + 2
 #   -if so, push the number and number + 2 to a result array
-# -return sorted result array 
+# -return sorted result array
 
 def twos_difference(arr)
-	arr.each_with_object([]) do |num, twos|
-		twos << [num, num+2] if arr.include?(num+2)
-	end.sort
-end 
+  arr.each_with_object([]) do |num, twos|
+    twos << [num, num + 2] if arr.include?(num + 2)
+  end.sort
+end
 
 # Good Code Wars solution
 def twos_difference(arr)

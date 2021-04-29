@@ -11,34 +11,35 @@ A word is a string of letters (A to Z) optionally containing one or more apostro
 Matches should be case-insensitive, and the words in the result should be lowercased.
 Ties may be broken arbitrarily.
 If a text contains fewer than three unique words, then either the top-2 or top-1 words should be returned, or an empty array if a text contains no words.
-=end 
+=end
 
 ALPHABET = ("a".."z").to_a
 
 def no_letters?(string)
-  is_letter = string.split('').map { |char| ALPHABET.include?(char) } 
-  is_letter.all? { |value| value == false } 
-end 
+  is_letter = string.split('').map { |char| ALPHABET.include?(char) }
+  is_letter.all? { |value| value == false }
+end
 
 def top_3_words(string)
   result = []
-  return result if no_letters?(string) == true 
+  return result if no_letters?(string) == true
 
   stripped_string = string.downcase.gsub(/[^a-z ']/, '')
 
   largest_to_smallest_counts = stripped_string.split.tally.sort_by { |k, v| v }.reverse
-  
-  largest_to_smallest_counts.each_with_index do |array, idx| 
-    break if idx > 2 
-    result << array[0] 
-  end 
+
+  largest_to_smallest_counts.each_with_index do |array, idx|
+    break if idx > 2
+
+    result << array[0]
+  end
 
   result
-end 
+end
 
 # TEST CASE
-p top_3_words("a a a  b  c c  d d d d  e e e e e") == ["e", "d", "a"] #e occurs 5 times, d occurs 2, a occurs 3
-p top_3_words("e e e e DDD ddd DdD: ddd ddd aa aA Aa, bb cc cC e e e") == ["e", "ddd", "aa"] #e occurs 7, ddd occurs 6, aa occurs 3
+p top_3_words("a a a  b  c c  d d d d  e e e e e") == ["e", "d", "a"] # e occurs 5 times, d occurs 2, a occurs 3
+p top_3_words("e e e e DDD ddd DdD: ddd ddd aa aA Aa, bb cc cC e e e") == ["e", "ddd", "aa"] # e occurs 7, ddd occurs 6, aa occurs 3
 p top_3_words("  , e   .. ") == ["e"]
 p top_3_words("  ...  ") == []
 p top_3_words("  '  ") == []

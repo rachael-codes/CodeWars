@@ -6,7 +6,7 @@
 
 def is_anagram(str1, str2)
   str1.downcase.chars.sort.join == str2.downcase.chars.sort.join
-end 
+end
 
 p is_anagram('Creative', 'Reactive') == true
 p is_anagram("foefet", "toffee") == true

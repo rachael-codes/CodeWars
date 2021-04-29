@@ -17,13 +17,13 @@ Note: Test cases contain valid input only - i.e. a string array or an empty arra
 =end
 
 # input: array
-# string that represents the joined chars from certain elements from the input array 
+# string that represents the joined chars from certain elements from the input array
 
-# implicit 
-# -return empty array if input is empty string 
-# -preserve case 
+# implicit
+# -return empty array if input is empty string
+# -preserve case
 
-# D: string 
+# D: string
 
 # Algo
 # -initialize empty string
@@ -35,16 +35,16 @@ def nth_char(arr)
   result = ''
   arr.each_with_index { |word, idx| result += word[idx] }
   result
-end 
+end
 
-# Another solution 
+# Another solution
 def nth_char(words)
-  words.map.with_index{|x,i| x[i]}.join
+  words.map.with_index { |x, i| x[i] }.join
 end
 
 # TEST CASES
 p nth_char(['yoda', 'best', 'has']) == 'yes' # y = index 0 of word 0, e = index 1 of word 1, s = index 2 of word 2
-p nth_char([]) == '' 
-p nth_char(['X-ray']) == 'X' # if only one word (word 0), return just index 0 
-p nth_char(['No', 'No']) == 'No' # preserve case 
-p nth_char(['Chad', 'Morocco', 'India', 'Algeria', 'Botswana', 'Bahamas', 'Ecuador', 'Micronesia']) ==  'Codewars'
+p nth_char([]) == ''
+p nth_char(['X-ray']) == 'X' # if only one word (word 0), return just index 0
+p nth_char(['No', 'No']) == 'No' # preserve case
+p nth_char(['Chad', 'Morocco', 'India', 'Algeria', 'Botswana', 'Bahamas', 'Ecuador', 'Micronesia']) == 'Codewars'

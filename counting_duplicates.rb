@@ -4,12 +4,12 @@
 # Kyu: 6
 # 6 kyu
 
-# Count the number of Duplicates: Write a function that will return the count of distinct case-insensitive 
-# alphabetic characters and numeric digits that occur more than once in the input string. 
+# Count the number of Duplicates: Write a function that will return the count of distinct case-insensitive
+# alphabetic characters and numeric digits that occur more than once in the input string.
 # The input string can be assumed to contain only alphabets (both uppercase and lowercase) and numeric digits.
 
 # Algo
-# 1. Split string into array of downcased characters 
+# 1. Split string into array of downcased characters
 # 2. Create a hash that contains each letter and # of occurrences (with tally method or manually)
 # 3. Iterate over values (which rep # of occurrences of a letter) + select those that are greater than 1; count them
 
@@ -18,13 +18,12 @@ def duplicate_count(string)
   letters = string.downcase.chars
   hsh = string.downcase.chars.each_with_object({}) { |el, hsh| hsh[el] = letters.count(el) }
   hsh.values.select { |num| num > 1 }.count
-end 
+end
 
-
-# One-liner solution w/ tally method 
+# One-liner solution w/ tally method
 def duplicate_count2(string)
   string.downcase.chars.tally.values.select { |num| num > 1 }.count
-end 
+end
 
 # TEST CASES
 p duplicate_count("") == 0
